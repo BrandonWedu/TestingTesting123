@@ -41,4 +41,40 @@ class UniqueCollectionTest {
 
         assert(originalSize == 2 && newSize == 0) {"Items not cleared"}
     }
+
+    //Test Remove
+    @Test
+    fun remove() {
+        val item1 = Item("item1")
+        val item2 = Item("item2")
+        val item3 = Item("item3")
+
+        collection.addItem(item1)
+        collection.addItem(item2)
+
+        collection.remove(item2)
+
+        assert(collection.size() == 1){"Item not removed"}
+
+        assert(collection.get(0) != item2){"item2 is in the collection"}
+
+        collection.remove(item3)
+
+        assert(collection.size() == 1){"List remains unchanged"}
+
+    }
+
+    //Test Get
+    @Test
+    fun get() {
+        val item1 = Item("item1")
+        val item2 = Item("item2")
+        val item3 = Item("item3")
+
+        collection.addItem(item1)
+        collection.addItem(item2)
+
+        assert(collection.get(0) == item1){"Correct item was fetched"}
+    }
+
 }
